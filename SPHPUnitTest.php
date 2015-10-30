@@ -119,6 +119,14 @@ EOF;
         }
         return $total;
     }
+
+    /**
+     * 断言
+     * @param bool $result 断言表达式 如 $a != 2
+     * @param string $message 用例名称
+     * @param mixed $testData 测试数据 一般是 $a
+     * @return bool 断言成功或失败
+     */
     public function assert($result , $message = '' , $testData = null){
         $this->pushTestResult($result , $message, $testData);
         return $result;
@@ -169,7 +177,13 @@ EOF;
     protected function getTestResult(){
         return $GLOBALS['__testResults'];
     }
-    public function fetchFuncOutput($func_name, $arg = null){
+    /**
+     * 抓取函数输出
+     * @param string $func_name 函数名
+     * @param array $arg 函数参数数组
+     * @return string 函数执行后的输出内容
+     */
+    public function fetchFuncOutput($func_name, $arg = array()){
         ob_start();
             call_user_func_array($func_name, $arg);
         
@@ -178,7 +192,14 @@ EOF;
         header("Content-type:text/html;charset=utf-8");
         return $data;
     }
-    public function fetchMethodOutput($emthod_name, $obj, $arg = array()){echo 111;
+    /**
+     * 抓取方法输出
+     * @param string $emthod_name 方法名
+     * @param object $obj 对象
+     * @param array $arg 方法参数数组
+     * @return string 方法执行后的输出内容
+     */
+    public function fetchMethodOutput($emthod_name, $obj, $arg = array()){
         ob_start();
             call_user_method_array($emthod_name, $obj, $arg);
         
