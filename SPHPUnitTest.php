@@ -2,7 +2,7 @@
 /**
  * SPUT -- Simple PHP Unit Test SPHPUnit
  * php测试工具类
- *
+ * @link https://github.com/SPHPUnit/SPUT
  * @author  writethesky<writethesky@163.com>
  * @version 0.1
  * Date: 2015/10/30
